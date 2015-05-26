@@ -1,0 +1,161 @@
+<!-- Validation failure messages -->
+
+<% if @user.errors.any? %>
+  <% @user.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<!-- Responsive panel example -->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Edit User #<%= @user.id %></h3>
+      </div>
+      <div class="panel-body">
+        <form action="/update_user/<%= @user.id %>" method="post" class="form-horizontal">
+          <!-- Hidden input for authenticity token to protect from forgery -->
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+          <!-- Label and input for first -->
+          <div class="form-group">
+            <label for="first" class="col-sm-2 control-label">
+              First
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="first" name="first" placeholder="First" class="form-control" value="<%= @user.first %>">
+            </div>
+          </div>
+
+          <!-- Label and input for last -->
+          <div class="form-group">
+            <label for="last" class="col-sm-2 control-label">
+              Last
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="last" name="last" placeholder="Last" class="form-control" value="<%= @user.last %>">
+            </div>
+          </div>
+
+          <!-- Label and input for email -->
+          <div class="form-group">
+            <label for="email" class="col-sm-2 control-label">
+              Email
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="email" name="email" placeholder="Email" class="form-control" value="<%= @user.email %>">
+            </div>
+          </div>
+
+          <!-- Label and input for phone -->
+          <div class="form-group">
+            <label for="phone" class="col-sm-2 control-label">
+              Phone
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="phone" name="phone" placeholder="Phone" class="form-control" value="<%= @user.phone %>">
+            </div>
+          </div>
+
+          <!-- Label and input for dorm -->
+          <div class="form-group">
+            <label for="dorm" class="col-sm-2 control-label">
+              Dorm
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="dorm" name="dorm" placeholder="Dorm" class="form-control" value="<%= @user.dorm %>">
+            </div>
+          </div>
+
+          <!-- Label and input for address1 -->
+          <div class="form-group">
+            <label for="address1" class="col-sm-2 control-label">
+              Address1
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="address1" name="address1" placeholder="Address1" class="form-control" value="<%= @user.address1 %>">
+            </div>
+          </div>
+
+          <!-- Label and input for address2 -->
+          <div class="form-group">
+            <label for="address2" class="col-sm-2 control-label">
+              Address2
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="address2" name="address2" placeholder="Address2" class="form-control" value="<%= @user.address2 %>">
+            </div>
+          </div>
+
+          <!-- Label and input for zip -->
+          <div class="form-group">
+            <label for="zip" class="col-sm-2 control-label">
+              Zip
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="zip" name="zip" placeholder="Zip" class="form-control" value="<%= @user.zip %>">
+            </div>
+          </div>
+
+          <!-- Label and input for pud -->
+          <div class="form-group">
+            <label for="pud" class="col-sm-2 control-label">
+              Pud
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="pud" name="pud" placeholder="Pud" class="form-control" value="<%= @user.pud %>">
+            </div>
+          </div>
+
+          <!-- Label and input for put -->
+          <div class="form-group">
+            <label for="put" class="col-sm-2 control-label">
+              Put
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="put" name="put" placeholder="Put" class="form-control" value="<%= @user.put %>">
+            </div>
+          </div>
+
+          <!-- Label and input for dod -->
+          <div class="form-group">
+            <label for="dod" class="col-sm-2 control-label">
+              Dod
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="dod" name="dod" placeholder="Dod" class="form-control" value="<%= @user.dod %>">
+            </div>
+          </div>
+
+          <!-- Label and input for dot -->
+          <div class="form-group">
+            <label for="dot" class="col-sm-2 control-label">
+              Dot
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="dot" name="dot" placeholder="Dot" class="form-control" value="<%= @user.dot %>">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button class="btn btn-warning">
+                Update User
+              </button>
+              or
+              <a href="/users/<%= @user.id %>">Cancel</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- End responsive panel example -->

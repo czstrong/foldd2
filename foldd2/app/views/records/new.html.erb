@@ -1,0 +1,90 @@
+<!-- Validation failure messages -->
+
+<% if @record.errors.any? %>
+  <% @record.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<!-- Responsive panel example -->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Add Record</h3>
+      </div>
+      <div class="panel-body">
+        <form action="/create_record" method="post" class="form-horizontal">
+          <!-- Hidden input for authenticity token to protect from forgery -->
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+          <!-- Label and input for user_id -->
+          <div class="form-group">
+            <label for="user_id" class="col-sm-2 control-label">
+              User
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @record.user_id %>">
+            </div>
+          </div>
+
+          <!-- Label and input for pud -->
+          <div class="form-group">
+            <label for="pud" class="col-sm-2 control-label">
+              Pud
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="pud" name="pud" placeholder="Pud" class="form-control" value="<%= @record.pud %>">
+            </div>
+          </div>
+
+          <!-- Label and input for put -->
+          <div class="form-group">
+            <label for="put" class="col-sm-2 control-label">
+              Put
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="put" name="put" placeholder="Put" class="form-control" value="<%= @record.put %>">
+            </div>
+          </div>
+
+          <!-- Label and input for dod -->
+          <div class="form-group">
+            <label for="dod" class="col-sm-2 control-label">
+              Dod
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="dod" name="dod" placeholder="Dod" class="form-control" value="<%= @record.dod %>">
+            </div>
+          </div>
+
+          <!-- Label and input for dot -->
+          <div class="form-group">
+            <label for="dot" class="col-sm-2 control-label">
+              Dot
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="dot" name="dot" placeholder="Dot" class="form-control" value="<%= @record.dot %>">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button class="btn btn-success">
+                Create Record
+              </button>
+              or
+              <a href="/records">Cancel</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End responsive panel example -->
