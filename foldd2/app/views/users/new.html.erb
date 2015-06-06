@@ -11,6 +11,49 @@
 
 <!-- Responsive panel example -->
 
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field form-group">
+    <%= f.label :first, 'First Name' %>
+    <%= f.text_field :first, autofocus: true, :class => "form-control" %>
+  </div>
+    <div class="field form-group">
+    <%= f.label :last, 'Last Name' %>
+    <%= f.text_field :last, autofocus: true, :class => "form-control" %>
+  </div>
+
+
+  <div class="field form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true, :class => "form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %>
+    <%= f.password_field :password, autocomplete: "off", :class => "form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+
+
+
 <div class="row">
   <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
     <div class="panel panel-default">
@@ -25,7 +68,7 @@
           <!-- Label and input for first -->
           <div class="form-group">
             <label for="first" class="col-sm-2 control-label">
-              First
+              First Name
             </label>
             <div class="col-sm-10">
               <input type="text" id="first" name="first" placeholder="First" class="form-control" value="<%= @user.first %>">
@@ -35,7 +78,7 @@
           <!-- Label and input for last -->
           <div class="form-group">
             <label for="last" class="col-sm-2 control-label">
-              Last
+              Last Name
             </label>
             <div class="col-sm-10">
               <input type="text" id="last" name="last" placeholder="Last" class="form-control" value="<%= @user.last %>">
@@ -48,7 +91,7 @@
               Email
             </label>
             <div class="col-sm-10">
-              <input type="text" id="email" name="email" placeholder="Email" class="form-control" value="<%= @user.email %>">
+              <input type="email" id="email" name="email" placeholder="Email" class="form-control" value="<%= @user.email %>">
             </div>
           </div>
 
@@ -58,7 +101,7 @@
               Phone
             </label>
             <div class="col-sm-10">
-              <input type="text" id="phone" name="phone" placeholder="Phone" class="form-control" value="<%= @user.phone %>">
+              <input type="string" id="phone" name="phone" placeholder="Phone" class="form-control" value="<%= @user.phone %>">
             </div>
           </div>
 
@@ -105,40 +148,66 @@
           <!-- Label and input for pud -->
           <div class="form-group">
             <label for="pud" class="col-sm-2 control-label">
-              Pud
+              Pick Up Date
             </label>
             <div class="col-sm-10">
-              <input type="text" id="pud" name="pud" placeholder="Pud" class="form-control" value="<%= @user.pud %>">
+              <select class="form-control" type="text" id="pud" name="pud" value="<%= @user.pud %>">
+  <option>Sunday</option>
+  <option>Monday</option>
+  <option>Tuesday</option>
+</select>
             </div>
           </div>
 
           <!-- Label and input for put -->
           <div class="form-group">
             <label for="put" class="col-sm-2 control-label">
-              Put
+              Pick Up Time
             </label>
             <div class="col-sm-10">
-              <input type="text" id="put" name="put" placeholder="Put" class="form-control" value="<%= @user.put %>">
+              <select class="form-control" type="text" id="put" name="put" value="<%= @user.put %>">
+  <option>10:00 AM</option>
+  <option>11:00 AM</option>
+  <option>12:00 PM</option>
+  <option>1:00 PM</option>
+ <option>2:00 PM</option>
+  <option>3:00 PM</option>
+  <option>4:00 PM</option>
+</select>
             </div>
           </div>
 
           <!-- Label and input for dod -->
           <div class="form-group">
             <label for="dod" class="col-sm-2 control-label">
-              Dod
+              Drop Off Date
             </label>
             <div class="col-sm-10">
-              <input type="text" id="dod" name="dod" placeholder="Dod" class="form-control" value="<%= @user.dod %>">
+              <select class="form-control" type="text" id="dod" name="dod" value="<%= @user.dod %>">
+  <option>Monday</option>
+  <option>Tuesday</option>
+  <option>Wednesday</option>
+</select>
+
+
             </div>
           </div>
 
           <!-- Label and input for dot -->
           <div class="form-group">
             <label for="dot" class="col-sm-2 control-label">
-              Dot
+              Drop Off Time
             </label>
             <div class="col-sm-10">
-              <input type="text" id="dot" name="dot" placeholder="Dot" class="form-control" value="<%= @user.dot %>">
+              <select class="form-control" type="text" id="dot" name="dot" value="<%= @user.dot %>">
+<option>10:00 AM</option>
+  <option>11:00 AM</option>
+  <option>12:00 PM</option>
+  <option>1:00 PM</option>
+ <option>2:00 PM</option>
+  <option>3:00 PM</option>
+  <option>4:00 PM</option>
+</select>
             </div>
           </div>
 
