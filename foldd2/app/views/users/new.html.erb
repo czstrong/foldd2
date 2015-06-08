@@ -11,6 +11,50 @@
 
 <!-- Responsive panel example -->
 
+<div class="jumbotron">
+  <h1>Don't hassle with doing your own laundry</h1>
+  <p>With Foldd, your laundry will be picked up, washed, folded, and delivered once a week.</p>
+<!--   <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p> -->
+</div>
+
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="http://i.imgur.com/OJiNA5P.png" alt="...">
+      <div class="caption">
+        <h3>1. Pick Up</h3>
+        <p>Your clothes will be picked up from your residence each week on the date and time you choose.</p>
+        <!-- <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> -->
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="http://i.imgur.com/Lru0gpr.png" alt="...">
+      <div class="caption">
+        <h3>2. Wash and Fold</h3>
+        <p>We'll wash and fold your laundry at our nearby laundry facility.</p>
+        <!-- <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> -->
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="http://i.imgur.com/ksP7Y09.png" alt="...">
+      <div class="caption">
+        <h3>3. Clean Clothes Delivered</h3>
+        <p>We'll deliver your clean, folded clothes the next day at a time that you request.</p>
+        <!-- <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -20,6 +64,7 @@
     <%= f.label :first, 'First Name' %>
     <%= f.text_field :first, autofocus: true, :class => "form-control" %>
   </div>
+
     <div class="field form-group">
     <%= f.label :last, 'Last Name' %>
     <%= f.text_field :last, autofocus: true, :class => "form-control" %>
@@ -44,109 +89,32 @@
     <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="field form-group">
+    <%= f.label :phone, 'Phone Number' %>
+    <%= f.telephone_field :phone, autofocus: true, :class => "form-control", :limit => 10 %>
   </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+  <div class="field form-group">
+    <%= f.label :dorm, 'Dorm Name' %>
+    <%= f.text_field :dorm, autofocus: true, :class => "form-control" %>
+  </div>
 
+    <div class="field form-group">
+    <%= f.label :address1, 'Address 1' %>
+    <%= f.text_field :address1, autofocus: true, :class => "form-control" %>
+  </div>
 
+    <div class="field form-group">
+    <%= f.label :address2, 'Address 2' %>
+    <%= f.text_field :address2, autofocus: true, :class => "form-control" %>
+  </div>
 
+  <div class="field form-group">
+    <%= f.label :zip, 'Zip Code' %>
+    <%= f.number_field :zip, autofocus: true, :class => "form-control" %>
+  </div>
 
-<div class="row">
-  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Add User</h3>
-      </div>
-      <div class="panel-body">
-        <form action="/create_user" method="post" class="form-horizontal">
-          <!-- Hidden input for authenticity token to protect from forgery -->
-          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-
-          <!-- Label and input for first -->
-          <div class="form-group">
-            <label for="first" class="col-sm-2 control-label">
-              First Name
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="first" name="first" placeholder="First" class="form-control" value="<%= @user.first %>">
-            </div>
-          </div>
-
-          <!-- Label and input for last -->
-          <div class="form-group">
-            <label for="last" class="col-sm-2 control-label">
-              Last Name
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="last" name="last" placeholder="Last" class="form-control" value="<%= @user.last %>">
-            </div>
-          </div>
-
-          <!-- Label and input for email -->
-          <div class="form-group">
-            <label for="email" class="col-sm-2 control-label">
-              Email
-            </label>
-            <div class="col-sm-10">
-              <input type="email" id="email" name="email" placeholder="Email" class="form-control" value="<%= @user.email %>">
-            </div>
-          </div>
-
-          <!-- Label and input for phone -->
-          <div class="form-group">
-            <label for="phone" class="col-sm-2 control-label">
-              Phone
-            </label>
-            <div class="col-sm-10">
-              <input type="string" id="phone" name="phone" placeholder="Phone" class="form-control" value="<%= @user.phone %>">
-            </div>
-          </div>
-
-          <!-- Label and input for dorm -->
-          <div class="form-group">
-            <label for="dorm" class="col-sm-2 control-label">
-              Dorm
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="dorm" name="dorm" placeholder="Dorm" class="form-control" value="<%= @user.dorm %>">
-            </div>
-          </div>
-
-          <!-- Label and input for address1 -->
-          <div class="form-group">
-            <label for="address1" class="col-sm-2 control-label">
-              Address1
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="address1" name="address1" placeholder="Address1" class="form-control" value="<%= @user.address1 %>">
-            </div>
-          </div>
-
-          <!-- Label and input for address2 -->
-          <div class="form-group">
-            <label for="address2" class="col-sm-2 control-label">
-              Address2
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="address2" name="address2" placeholder="Address2" class="form-control" value="<%= @user.address2 %>">
-            </div>
-          </div>
-
-          <!-- Label and input for zip -->
-          <div class="form-group">
-            <label for="zip" class="col-sm-2 control-label">
-              Zip
-            </label>
-            <div class="col-sm-10">
-              <input type="text" id="zip" name="zip" placeholder="Zip" class="form-control" value="<%= @user.zip %>">
-            </div>
-          </div>
-
-          <!-- Label and input for pud -->
-          <div class="form-group">
+  <div class="form-group">
             <label for="pud" class="col-sm-2 control-label">
               Pick Up Date
             </label>
@@ -211,19 +179,11 @@
             </div>
           </div>
 
-          <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-              <button class="btn btn-success">
-                Create User
-              </button>
-              or
-              <a href="/users">Cancel</a>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
+  <div class="actions">
+    <%= f.submit "Sign up" %>
   </div>
-</div>
+<% end %>
 
-<!-- End responsive panel example -->
+<%= render "devise/shared/links" %>
+
+

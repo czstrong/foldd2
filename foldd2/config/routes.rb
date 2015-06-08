@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
 
   devise_for :users
-  get "/", :controller => "users", :action => "new"
+
+  root 'records#index'
+
   # Routes for the Record resource:
   # CREATE
   get "/records/new", :controller => "records", :action => "new"
