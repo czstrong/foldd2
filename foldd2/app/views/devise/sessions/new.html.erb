@@ -1,3 +1,189 @@
+<!-- Validation failure messages -->
+
+<% if @user.errors.any? %>
+  <% @user.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<!-- Responsive panel example -->
+
+<div class="jumbotron">
+  <h1>Don't hassle with doing your own laundry</h1>
+  <p>With Foldd, your laundry will be picked up, washed, folded, and delivered once a week.</p>
+<!--   <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p> -->
+</div>
+
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="http://i.imgur.com/OJiNA5P.png" alt="...">
+      <div class="caption">
+        <h3>1. Pick Up</h3>
+        <p>Your clothes will be picked up from your residence each week on the date and time you choose.</p>
+        <!-- <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> -->
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="http://i.imgur.com/Lru0gpr.png" alt="...">
+      <div class="caption">
+        <h3>2. Wash and Fold</h3>
+        <p>We'll wash and fold your laundry at our nearby laundry facility.</p>
+        <!-- <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> -->
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="http://i.imgur.com/ksP7Y09.png" alt="...">
+      <div class="caption">
+        <h3>3. Clean Clothes Delivered</h3>
+        <p>We'll deliver your clean, folded clothes the next day at a time that you request.</p>
+        <!-- <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field form-group">
+    <%= f.label :first, 'First Name' %>
+    <%= f.text_field :first, autofocus: true, :class => "form-control" %>
+  </div>
+
+    <div class="field form-group">
+    <%= f.label :last, 'Last Name' %>
+    <%= f.text_field :last, autofocus: true, :class => "form-control" %>
+  </div>
+
+
+  <div class="field form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true, :class => "form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %>
+    <%= f.password_field :password, autocomplete: "off", :class => "form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :phone, 'Phone Number' %>
+    <%= f.text_field :phone, autofocus: true, :class => "form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :dorm, 'Dorm Name' %>
+    <%= f.text_field :dorm, autofocus: true, :class => "form-control" %>
+  </div>
+
+    <div class="field form-group">
+    <%= f.label :address1, 'Address 1' %>
+    <%= f.text_field :address1, autofocus: true, :class => "form-control" %>
+  </div>
+
+    <div class="field form-group">
+    <%= f.label :address2, 'Address 2' %>
+    <%= f.text_field :address2, autofocus: true, :class => "form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :zip, 'Zip Code' %>
+    <%= f.number_field :zip, autofocus: true, :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+            <label for="pud" class="col-sm-2 control-label">
+              Pick Up Date
+            </label>
+            <div class="col-sm-10">
+              <select class="form-control" type="text" id="pud" name="pud" value="<%= @user.pud %>">
+  <option>Sunday</option>
+  <option>Monday</option>
+  <option>Tuesday</option>
+</select>
+            </div>
+          </div>
+
+          <!-- Label and input for put -->
+          <div class="form-group">
+            <label for="put" class="col-sm-2 control-label">
+              Pick Up Time
+            </label>
+            <div class="col-sm-10">
+              <select class="form-control" type="text" id="put" name="put" value="<%= @user.put %>">
+  <option>10:00 AM</option>
+  <option>11:00 AM</option>
+  <option>12:00 PM</option>
+  <option>1:00 PM</option>
+ <option>2:00 PM</option>
+  <option>3:00 PM</option>
+  <option>4:00 PM</option>
+</select>
+            </div>
+          </div>
+
+          <!-- Label and input for dod -->
+          <div class="form-group">
+            <label for="dod" class="col-sm-2 control-label">
+              Drop Off Date
+            </label>
+            <div class="col-sm-10">
+              <select class="form-control" type="text" id="dod" name="dod" value="<%= @user.dod %>">
+  <option>Monday</option>
+  <option>Tuesday</option>
+  <option>Wednesday</option>
+</select>
+
+
+            </div>
+          </div>
+
+          <!-- Label and input for dot -->
+          <div class="form-group">
+            <label for="dot" class="col-sm-2 control-label">
+              Drop Off Time
+            </label>
+            <div class="col-sm-10">
+              <select class="form-control" type="text" id="dot" name="dot" value="<%= @user.dot %>">
+<option>10:00 AM</option>
+  <option>11:00 AM</option>
+  <option>12:00 PM</option>
+  <option>1:00 PM</option>
+ <option>2:00 PM</option>
+  <option>3:00 PM</option>
+  <option>4:00 PM</option>
+</select>
+            </div>
+          </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -24,3 +210,6 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+<%= render "devise/shared/links" %>
+

@@ -1,0 +1,11 @@
+<h1>My Dashboard</h1>
+
+<h2>Welcome, <%= current_user.first %></h2>
+
+<p>Your laundry pick up and delivery address currently is: <%= current_user.dorm %> <%= current_user.address1 %> <%= current_user.address2 %> </p>
+
+
+<% current_user.records.each do |record| %>
+
+<% end %>
+

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  root 'records#index'
+  root 'users#dashboard'
 
   # Routes for the Record resource:
   # CREATE
@@ -28,11 +28,12 @@ Rails.application.routes.draw do
   post "/create_user", :controller => "users", :action => "create"
 
   # READ
+  get "/users/dashboard", :controller => "users", :action => "dashboard"
   get "/users", :controller => "users", :action => "index"
   get "/users/:id", :controller => "users", :action => "show"
 
   # UPDATE
-  get "/users/:id/edit", :controller => "users", :action => "edit"
+  get "/users/edit", :controller => "users", :action => "edit"
   post "/update_user/:id", :controller => "users", :action => "update"
 
   # DELETE

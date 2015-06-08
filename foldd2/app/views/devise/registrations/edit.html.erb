@@ -13,29 +13,119 @@
     <%= f.text_field :last, autofocus: true, :class => "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group" >
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, autofocus: true, :class => "form-control" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group" >
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off", :class => "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group" >
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group" >
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
+    <%= f.password_field :current_password, autocomplete: "off", :class => "form-control" %>
   </div>
+
+  <div class="field form-group">
+    <%= f.label :phone, 'Phone Number' %>
+    <%= f.telephone_field :phone, autofocus: true, :class => "form-control", :limit => 10 %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :dorm, 'Dorm Name' %>
+    <%= f.text_field :dorm, autofocus: true, :class => "form-control" %>
+  </div>
+
+    <div class="field form-group">
+    <%= f.label :address1, 'Address 1' %>
+    <%= f.text_field :address1, autofocus: true, :class => "form-control" %>
+  </div>
+
+    <div class="field form-group">
+    <%= f.label :address2, 'Address 2' %>
+    <%= f.text_field :address2, autofocus: true, :class => "form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :zip, 'Zip Code' %>
+    <%= f.number_field :zip, autofocus: true, :class => "form-control" %>
+  </div>
+
+   <div class="form-group">
+            <label for="pud" class="col-sm-2 control-label">
+              Pick Up Date
+            </label>
+            <div class="col-sm-10">
+              <select class="form-control" type="text" id="pud" name="pud" value="<%= @user.pud %>">
+  <option>Sunday</option>
+  <option>Monday</option>
+  <option>Tuesday</option>
+</select>
+            </div>
+          </div>
+
+          <!-- Label and input for put -->
+          <div class="form-group">
+            <label for="put" class="col-sm-2 control-label">
+              Pick Up Time
+            </label>
+            <div class="col-sm-10">
+              <select class="form-control" type="text" id="put" name="put" value="<%= @user.put %>">
+  <option>10:00 AM</option>
+  <option>11:00 AM</option>
+  <option>12:00 PM</option>
+  <option>1:00 PM</option>
+ <option>2:00 PM</option>
+  <option>3:00 PM</option>
+  <option>4:00 PM</option>
+</select>
+            </div>
+          </div>
+
+          <!-- Label and input for dod -->
+          <div class="form-group">
+            <label for="dod" class="col-sm-2 control-label">
+              Drop Off Date
+            </label>
+            <div class="col-sm-10">
+              <select class="form-control" type="text" id="dod" name="dod" value="<%= @user.dod %>">
+  <option>Monday</option>
+  <option>Tuesday</option>
+  <option>Wednesday</option>
+</select>
+
+
+            </div>
+          </div>
+
+          <!-- Label and input for dot -->
+          <div class="form-group">
+            <label for="dot" class="col-sm-2 control-label">
+              Drop Off Time
+            </label>
+            <div class="col-sm-10">
+              <select class="form-control" type="text" id="dot" name="dot" value="<%= @user.dot %>">
+<option>10:00 AM</option>
+  <option>11:00 AM</option>
+  <option>12:00 PM</option>
+  <option>1:00 PM</option>
+ <option>2:00 PM</option>
+  <option>3:00 PM</option>
+  <option>4:00 PM</option>
+</select>
+            </div>
+          </div>
 
   <div class="actions">
     <%= f.submit "Update" %>
