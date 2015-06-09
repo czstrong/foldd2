@@ -24,20 +24,20 @@
       </div>
       <div class="panel-body">
         <dl>
-          <dt>User</dt>
+          <dt>User ID</dt>
           <dd><%= record.user_id %></dd>
 
-          <dt>Pud</dt>
-          <dd><%= record.pud %></dd>
+          <dt>Pick Up Date</dt>
+          <dd><%= record.try(:pud).try(:strftime, '%A,   %b %d, %Y') %></dd>
 
-          <dt>Put</dt>
-          <dd><%= record.put %></dd>
+          <dt>Pick Up Time</dt>
+          <dd><%= record.try(:put).try(:strftime, '%l:%M %P') %></dd>
 
-          <dt>Dod</dt>
-          <dd><%= record.dod %></dd>
+          <dt>Drop Off Date</dt>
+          <dd><%= record.try(:dod).try(:strftime, '%A,   %b %d, %Y') %></dd>
 
-          <dt>Dot</dt>
-          <dd><%= record.dot %></dd>
+          <dt>Drop Off Time</dt>
+          <dd><%= record.try(:dot).try(:strftime, '%l:%M %P') %></dd>
 
         </dl>
         <div class="btn-group btn-group-justified">

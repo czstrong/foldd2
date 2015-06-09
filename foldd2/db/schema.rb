@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150605130730) do
+ActiveRecord::Schema.define(version: 20150609000610) do
 
   create_table "records", force: :cascade do |t|
     t.integer  "user_id"
@@ -27,15 +27,15 @@ ActiveRecord::Schema.define(version: 20150605130730) do
     t.string   "first"
     t.string   "last"
     t.string   "email"
-    t.integer  "phone"
+    t.string   "phone"
     t.string   "dorm"
     t.string   "address1"
     t.string   "address2"
     t.integer  "zip"
-    t.date     "pud"
-    t.time     "put"
-    t.date     "dod"
-    t.time     "dot"
+    t.string   "pud"
+    t.string   "put"
+    t.string   "dod"
+    t.string   "dot"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "encrypted_password",     default: "", null: false

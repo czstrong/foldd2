@@ -23,52 +23,66 @@
           <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
           <!-- Label and input for user_id -->
-          <div class="form-group">
+         <div class="form-group">
             <label for="user_id" class="col-sm-2 control-label">
-              User
+              User ID
             </label>
             <div class="col-sm-10">
               <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @record.user_id %>">
             </div>
           </div>
 
+
+
           <!-- Label and input for pud -->
-          <div class="form-group">
+          <div class="form-group" >
             <label for="pud" class="col-sm-2 control-label">
-              Pud
+              Pick Up Date
             </label>
-            <div class="col-sm-10">
-              <input type="text" id="pud" name="pud" placeholder="Pud" class="form-control" value="<%= @record.pud %>">
+            <div class="col-sm-9 input-group date" id='datetimepicker5'>
+              <input type="text" id="pud" name="pud" placeholder="Pud" class="form-control" value="<%= @record.pud %>" >
+              <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+                </span>
             </div>
           </div>
 
           <!-- Label and input for put -->
           <div class="form-group">
             <label for="put" class="col-sm-2 control-label">
-              Put
+              Pick Up Time
             </label>
-            <div class="col-sm-10">
+            <div class="col-sm-10 input-group date" id='datetimepicker7'>
               <input type="text" id="put" name="put" placeholder="Put" class="form-control" value="<%= @record.put %>">
+              <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-time"></span>
+                </span>
             </div>
           </div>
 
           <!-- Label and input for dod -->
           <div class="form-group">
             <label for="dod" class="col-sm-2 control-label">
-              Dod
+              Drop Off Date
             </label>
-            <div class="col-sm-10">
+            <div class="col-sm-10 input-group date" id='datetimepicker6'>
               <input type="text" id="dod" name="dod" placeholder="Dod" class="form-control" value="<%= @record.dod %>">
+                    <span class="input-group-addon">
+                   <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
             </div>
           </div>
 
           <!-- Label and input for dot -->
           <div class="form-group">
             <label for="dot" class="col-sm-2 control-label">
-              Dot
+              Drop Off Time
             </label>
-            <div class="col-sm-10">
+            <div class="col-sm-10 input-group date" id='datetimepicker8'>
               <input type="text" id="dot" name="dot" placeholder="Dot" class="form-control" value="<%= @record.dot %>">
+              <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-time"></span>
+                </span>
             </div>
           </div>
 
@@ -89,3 +103,37 @@
 
 
 <!-- End responsive panel example -->
+
+<script type="text/javascript">
+  $(function () {
+    $('#datetimepicker5').datetimepicker({
+      format: 'YYYY-MM-DD'
+    });
+  });
+</script>
+<!-- End responsive panel example -->
+<script type="text/javascript">
+  $(function () {
+    $('#datetimepicker6').datetimepicker({
+format: 'YYYY-MM-DD'
+    });
+  });
+</script>
+<!-- End responsive panel example -->
+<script type="text/javascript">
+  $(function () {
+     $('#datetimepicker7').datetimepicker({
+                    format: 'LT'
+                });
+  });
+</script>
+<!-- End responsive panel example -->
+<script type="text/javascript">
+  $(function () {
+     $('#datetimepicker8').datetimepicker({
+                    format: 'LT'
+                });
+  });
+</script>
+<!-- End responsive panel example -->
+

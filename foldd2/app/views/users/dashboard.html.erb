@@ -4,8 +4,23 @@
 
 <p>Your laundry pick up and delivery address currently is: <%= current_user.dorm %> <%= current_user.address1 %> <%= current_user.address2 %> </p>
 
+<p>Your laundry pick up day is <%= current_user.pud %> and your pick up time is <%= current_user.put %> </p>
+<p>Your laundry drop off day is <%= current_user.dod %> and your drop off time is <%= current_user.dot %> </p>
+
+
+<a href="/users/edit">Click here to edit your profile information.</a>
+
+
+
+<h3>Here is a list of your previous transactions</h3>
 
 <% current_user.records.each do |record| %>
-
+<dl>
+  <dt>Pick Up Date and Time</dt>
+  <dd><%= record.try(:pud).try(:strftime, '%A,   %b %d, %Y') %> at <%= record.try(:put).try(:strftime, '%l:%M %P') %></dd>
+  <dt>Drop Off Date and Time</dt>
+  <dd><%= record.try(:dod).try(:strftime, '%A,   %b %d, %Y') %> at <%= record.try(:dot).try(:strftime, '%l:%M %P') %></dd>
+  </dl>
 <% end %>
+
 

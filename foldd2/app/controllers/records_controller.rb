@@ -14,10 +14,10 @@ class RecordsController < ApplicationController
   def create
     @record = Record.new
     @record.user_id = params[:user_id]
-    @record.pud = params[:pud]
-    @record.put = params[:put]
-    @record.dod = params[:dod]
-    @record.dot = params[:dot]
+    @record.pud = Chronic.parse(params[:pud])
+    @record.put = Chronic.parse(params[:put])
+    @record.dod = Chronic.parse(params[:dod])
+    @record.dot = Chronic.parse(params[:dot])
 
     if @record.save
       redirect_to "/records", :notice => "Record created successfully."
@@ -34,10 +34,10 @@ class RecordsController < ApplicationController
     @record = Record.find(params[:id])
 
     @record.user_id = params[:user_id]
-    @record.pud = params[:pud]
-    @record.put = params[:put]
-    @record.dod = params[:dod]
-    @record.dot = params[:dot]
+    @record.pud = Chronic.parse(params[:pud])
+    @record.put = Chronic.parse(params[:put])
+    @record.dod = Chronic.parse(params[:dod])
+    @record.dot = Chronic.parse(params[:dot])
 
     if @record.save
       redirect_to "/records", :notice => "Record updated successfully."
